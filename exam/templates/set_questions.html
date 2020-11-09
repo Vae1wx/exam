@@ -1,0 +1,54 @@
+{% extends 'demo.html' %}
+{% block title%}
+薛定谔的小站
+{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+
+
+            <hr class="layui-bg-blue" style="height: 1px;">
+
+            <hr class="clearfix">
+            <div>
+                <div class="owl-item active" style="width: 628.667px; margin-right: 10px;">
+                    <div class </div>
+                    </div>
+                    <main class="post-container content"
+                        style="min-height: 453px;max-width: 1250px;margin: 0 auto;min-height: 453px;">
+                        <div class="row">
+                            <div id="main-content" class="col s12 m12 l9">
+                                <div id="artDetail">
+                                    <div class="card"
+                                        style="box-shadow: 0 10px 35px 2px rgba(0,0,0,.15),0 5px 15px rgba(0,0,0,.07),0 2px 5px -5px rgba(0,0,0,.1)!important;border-radius: 10px;">
+                                        <div class="card-content article-info" style="padding: 20px 30px 1px 40px;">
+                                            <div class="post-info">
+                                                <form class="form-horizontal" action="#"
+                                                    method="post">
+                                                    {% csrf_token %}
+                                                    {{ form.as_ul }}
+                                                    <div class="card-footer">
+                                                        <input type="submit" class="btn btn-info" value="保存" >
+                                                        <a href="{% url 'paper_list'  %}" class="btn btn-info" type="button">返回</a>
+                                                        
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

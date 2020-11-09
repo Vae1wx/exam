@@ -1,0 +1,37 @@
+{% extends 'demo.html' %}
+{% load static %}
+{% block title%}
+    薛定谔的小站
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "css/list.css" %}">
+<div class="jumbotron">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="content">
+                    {% for paper in papers %}
+                    <a class="card" href="{% url 'detail' paper.pk %}">
+                        <div class="front" style="background-image: url(/img/559.jpg);">
+                            <p>{{ paper.paper_title }}</p>
+                        </div>
+                        <div class="back">
+                            <div>
+                                <p>{{ paper.subject }}</p>
+                                <p>作者：{{ paper.created_by }}</p>
+                                <button class="button">练一下</button>
+                                
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}

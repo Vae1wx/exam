@@ -1,0 +1,61 @@
+{% extends 'demo.html' %}
+{% block title%}
+薛定谔的小站
+{% endblock %}
+{% load static %}
+{% load answer_tags %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+            <h2>{{ paper.paper_title }}</h2>
+            <div class="paper_info">
+                <div><b>出题人：{{ paper.created_by }}</b> </div>
+                <div><b>主题</b>{{ paper.subject }}</div>
+                <div><b>创建时间：</b> {{ paper.created_time }}</div>
+                <div><b>最后更改时间：</b> {{ paper.last_updated_time }}</div>
+                <div><b>共{{ question_num }}题</b></div>
+
+            </div>
+            <hr class="layui-bg-blue" style="height: 1px;">
+
+            <hr class="clearfix">
+            <div>
+                <div class="owl-item active" style="width: 628.667px; margin-right: 10px;">
+                    <div class="testimonial">
+                    </div>
+                </div>
+                <main class="post-container content"
+                    style="min-height: 453px;max-width: 1250px;margin: 0 auto;min-height: 453px;">
+                    <div class="row">
+                        <div id="main-content" class="col s12 m12 l9">
+                            <div id="artDetail">
+                                <div class="card"
+                                    style="box-shadow: 0 10px 35px 2px rgba(0,0,0,.15),0 5px 15px rgba(0,0,0,.07),0 2px 5px -5px rgba(0,0,0,.1)!important;border-radius: 10px;">
+                                    <div class="card-content article-info" style="padding: 20px 30px 1px 40px;">
+                                        <div class="post-info">
+                                            <p style="line-break: anywhere; text-align-last: left; text-indent: 2em; line-height: 1.5em;"></p>
+                                            <p>共{{ question_num }}题。</p>
+                                            你的得分:{{ paper.paper_score }}
+                                                {% for q in question %}
+                                                    <p>问题：{{ q.title }}</p>
+                                                    <p>你的回答{{ q.answer }}</p>
+                                                    <p>正确答案{{ q.right_answer }}</p>
+
+                                                {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

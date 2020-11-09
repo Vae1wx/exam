@@ -1,0 +1,17 @@
+{% extends 'demo.html' %}
+{% block title%}
+    薛定谔的小站
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+
+        <h1>薛定谔的练习网站</h1>
+        <a class="btn btn-primary btn-lg" href="{% url 'set_paper' %}" role="button">出卷子</a>
+
+    </div>
+</div>
+
+
+{% endblock %}

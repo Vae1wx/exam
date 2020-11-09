@@ -1,0 +1,79 @@
+{% extends 'demo.html' %}
+{% block title%}
+薛定谔的小站
+{% endblock %}
+{% load static %}
+{% load answer_tags %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+            <h2>{{ paper.paper_title }}</h2>
+            <div class="paper_info">
+                <div><b>出题人：{{ paper.created_by }}</b> </div>
+                <div><b>主题</b>{{ paper.subject }}</div>
+                <div><b>创建时间：</b> {{ paper.created_time }}</div>
+                <div><b>最后更改时间：</b> {{ paper.last_updated_time }}</div>
+
+            </div>
+            <hr class="layui-bg-blue" style="height: 1px;">
+
+            <hr class="clearfix">
+            <div>
+                <div class="owl-item active" style="width: 628.667px; margin-right: 10px;">
+                    <div class="testimonial">
+                    </div>
+                </div>
+                <main class="post-container content"
+                    style="min-height: 453px;max-width: 1250px;margin: 0 auto;min-height: 453px;">
+                    <div class="row">
+                        <div id="main-content" class="col s12 m12 l9">
+                            <div id="artDetail">
+                                <div class="card"
+                                    style="box-shadow: 0 10px 35px 2px rgba(0,0,0,.15),0 5px 15px rgba(0,0,0,.07),0 2px 5px -5px rgba(0,0,0,.1)!important;border-radius: 10px;">
+                                    <div class="card-content article-info" style="padding: 20px 30px 1px 40px;">
+                                        <div class="post-info">
+                                            {{ question.title }}
+
+                                            <form id="answer" class="form-horizontal"  method="post" style="overflow:hidden">
+                                                <label class="layui-form-label">你的回答：~</label>
+                                                {% csrf_token %}
+                                                {{ form.as_ul }}
+                                                <div class="card-footer">
+                                                    <button class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
+                                                    
+                                                    {% if previous_question %}
+                                                        <a class="layui-btn" href="{% url 'result' previous_question.pk %}">上一题</a>
+                                                    {% endif %}
+                                                    {% if next_question %}
+                                                    <a class="layui-btn" href="{% url 'result' next_question.pk %}">下一题</a>
+                                                    {% endif %}
+                                                    <a class="layui-btn" href="{% url 'check' question.paper_title.id %}">提交</a>
+                                                </div>
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#answer').submit(function () {
+        alert("Stop!垃圾评论");
+        return false;
+        
+       
+        return false;
+    })
+    return false;
+</script>
+{% endblock %}
